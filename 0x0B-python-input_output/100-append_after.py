@@ -1,19 +1,19 @@
 #!/usr/bin/python3
-"""
-function that inserts a line of text
-"""
+'''append_after'''
 
 
 def append_after(filename="", search_string="", new_string=""):
-    '''module Search and update
-    '''
-    with open(filename, 'r+') as f:
-        lines = f.readlines()
-        i = 0
-        for line in lines:
-            if line.find(search_string) is not -1:
-                lines.insert(i + 1, new_string)
-            i += 1
-        f.seek(0)
-        f.write("".join(lines))
+	'''search and update'''
+	read = []
+	with open(filename, "r", encoding="utf-8") as f:
+		read = f.readlines()
+		index = 0
 
+		while index < len(read):
+			if search_string in read[index]:
+				read[index:index + 1] = [read[index], new_string]
+				index += 1
+			index += 1
+
+	with open(filename, "w", encoding="utf-8") as file:
+		file.writelines(read)
