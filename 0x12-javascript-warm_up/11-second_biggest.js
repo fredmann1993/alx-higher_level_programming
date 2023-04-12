@@ -14,7 +14,7 @@ function second (myArray) {
       secondMax = myArray[i];
     }
   }
-  return (secondMax);
+  return secondMax;
 }
 
 console.log(second(process.argv));
