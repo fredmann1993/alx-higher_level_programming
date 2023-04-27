@@ -18,9 +18,8 @@ def find_peak(numbr):
 
     for idx in range(0, length):
         value = numbr[idx]
-        if (idx > 0 and idx < length - 1):
-            if (numbr[idx + 1] <= value and numbr[idx - 1] <= value):
-                return value
+        if 0 < idx < length-1 and value >= numbr[idx+1] >= numbr[idx-1]:
+            return value
         elif idx == 0 and numbr[idx + 1] <= value:
             return value
         elif idx == length - 1 and numbr[idx - 1] <= value:
