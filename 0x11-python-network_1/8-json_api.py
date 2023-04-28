@@ -5,6 +5,7 @@ http://0.0.0.0:5000/search_user with the letter as a parameter
 """
 import requests
 from sys import argv
+import JSONDecodeError
 
 if __name__ == '__main__':
     q = argv[1] if len(argv) == 2 else ""
@@ -17,5 +18,6 @@ if __name__ == '__main__':
             print("No result")
         else:
             print("[{}] {}".format(r_dict.get('id'), r_dict.get('name')))
-    except:
-        print("Not a valid JSON")
+    except JSONDecodeError as e:
+        # print("Not a valid JSON")
+        print(e)
