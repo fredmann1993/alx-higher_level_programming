@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-Python script that takes in a letter and sends a POST request to
-http://0.0.0.0:5000/search_user with the letter as a parameter
+Python script that takes in a letter and sends a POST reques
 """
 import requests
 from sys import argv
@@ -17,5 +16,5 @@ if __name__ == '__main__':
             print("No result")
         else:
             print("[{}] {}".format(r_dict.get('id'), r_dict.get('name')))
-    except:
-        print("Not a valid JSON")
+    except ValueError as e:
+        print("ValueError: {}".format(e))
